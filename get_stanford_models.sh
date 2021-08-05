@@ -12,7 +12,7 @@ if [ -f $SPICELIB/$JAR.jar ]; then
   echo "Found Stanford CoreNLP."
 else
   echo "Downloading..."
-  wget https://nlp.stanford.edu/software/$CORENLP.zip
+  wget --no-check-certificate https://nlp.stanford.edu/software/$CORENLP.zip
   echo "Unzipping..."
   unzip $CORENLP.zip -d $SPICELIB/
   mv $SPICELIB/$CORENLP/$JAR.jar $SPICELIB/

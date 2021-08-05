@@ -15,7 +15,7 @@ else
   OUTPUT=$( wget --save-cookies $WMDDATA/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=0B7XkCwpI5KDYNlNUTTlSS21pQmM' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/Code: \1\n/p' )
   CODE=${OUTPUT##*Code: }
   echo Code: $CODE
-  wget --load-cookies $WMDDATA/cookies.txt 'https://docs.google.com/uc?export=download&confirm='$CODE'&id=0B7XkCwpI5KDYNlNUTTlSS21pQmM' -O $WMDDATA/$MODEL.bin.gz
+  wget --load-cookies --no-check-certificate $WMDDATA/cookies.txt 'https://docs.google.com/uc?export=download&confirm='$CODE'&id=0B7XkCwpI5KDYNlNUTTlSS21pQmM' -O $WMDDATA/$MODEL.bin.gz
   rm $WMDDATA/cookies.txt
   echo "Unzipping..."
   gzip -d $WMDDATA/$MODEL.bin.gz $WMDDATA/
